@@ -78,7 +78,7 @@ class DeviceInfoPage extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: DropdownButtonFormField<String>(
                       decoration: InputDecoration(
-                        labelText: 'Company type',
+                        labelText: 'Device type',
                         filled: true,
                         fillColor: Colors.grey[300],
                         border: OutlineInputBorder(

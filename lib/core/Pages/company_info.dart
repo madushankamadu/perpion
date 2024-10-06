@@ -10,15 +10,27 @@ class CompanyInfoPage extends StatelessWidget {
 
   // Add a list of types for the dropdown
   final List<String> types = ['type 1', 'type 2', 'type 3'];
+  final List<String> users = ['user 1', 'user 2', 'user 3'];
   String? selectedType; // To store the selected type value
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.only(left:16.0,right: 16.0,top: 0.0,bottom: 16.0),
           child: Column(
             children: [
+
+              Row(
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.arrow_back),
+                    onPressed: () {
+                      Navigator.pop(context); // Navigate back
+                    },
+                  ),
+                ],
+              ),
               // Logo
               Center(
                 child: Padding(
@@ -86,6 +98,36 @@ class CompanyInfoPage extends StatelessWidget {
                         fontSize: 16,
                       ),// Makes sure the dropdown expands to full width
                       items: types.map((String type) {
+                        return DropdownMenuItem<String>(
+                          value: type,
+                          child: Text(type),
+                        );
+                      }).toList(),
+                      onChanged: (String? newValue) {
+                        selectedType = newValue!;
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: DropdownButtonFormField<String>(
+                      decoration: InputDecoration(
+                        labelText: 'User',
+                        filled: true,
+                        fillColor: Colors.grey[300],
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                      value: selectedType,
+                      isExpanded: true,
+                      icon: Icon(Icons.arrow_drop_down), // Dropdown arrow icon
+                      style: TextStyle( // Text style for dropdown items
+                        color: Colors.black,
+                        fontSize: 16,
+                      ),// Makes sure the dropdown expands to full width
+                      items: users.map((String type) {
                         return DropdownMenuItem<String>(
                           value: type,
                           child: Text(type),

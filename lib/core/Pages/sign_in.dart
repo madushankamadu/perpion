@@ -1,22 +1,14 @@
-import 'package:demo_app/core/components/custom_input_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/button_list.dart';
-import 'package:flutter_signin_button/button_view.dart';
 
+import '../components/custom_input_field.dart';
 import '../components/google_auth_button.dart';
 
-class SignUp extends StatefulWidget {
-  const SignUp({super.key});
-
-  @override
-  State<SignUp> createState() => _SignUpState();
-}
-
-class _SignUpState extends State<SignUp> {
+class SignInPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
   TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,13 +39,9 @@ class _SignUpState extends State<SignUp> {
               ),
               const SizedBox(height: 32.0),
 
+
               Text(
-                'New User?',
-                textAlign: TextAlign.left,
-                style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.w400),
-              ),
-              Text(
-                'Register Here',
+                'Login Here',
                 textAlign: TextAlign.left,
                 style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.w400),
               ),
@@ -81,17 +69,6 @@ class _SignUpState extends State<SignUp> {
                 radius: 50.0,
               ),
               SizedBox(height: 16.0),
-
-              // Confirm Password field
-              CustomTextField(
-                labelText: 'Confirm Password',
-                prefixIcon: Icons.lock,
-                isPasswordField: true,
-                controller: confirmPasswordController,
-                bgColor: Colors.grey[200],
-                borderSide: BorderSide.none,
-                radius: 50.0,
-              ),
               SizedBox(height: 24.0),
 
               // Signup button (shortened to half the screen width)
@@ -109,7 +86,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/sign_in');
+                        Navigator.pushNamed(context, '/personal_info');
                         // Handle the button press action
                       },
                       style: ElevatedButton.styleFrom(
@@ -121,7 +98,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                       ),
                       child: Text(
-                        'Signup',
+                        'Sign In',
                         style: TextStyle(fontSize: 18.0, color: Colors.white),
                       ),
                     ),
@@ -151,6 +128,6 @@ class _SignUpState extends State<SignUp> {
           ),
         ),
       ),
-    );
+    );;
   }
 }

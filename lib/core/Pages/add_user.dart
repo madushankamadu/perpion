@@ -2,12 +2,12 @@ import 'package:demo_app/core/components/custom_input_field.dart';
 import 'package:flutter/material.dart';
 import '../../colors/colors.dart';
 
-class PersonalInformationPage extends StatelessWidget {
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController lastNameController = TextEditingController();
-  final TextEditingController locationController = TextEditingController();
+class AddUserPage extends StatelessWidget {
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
-  PersonalInformationPage({super.key});
+  AddUserPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +17,16 @@ class PersonalInformationPage extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
+              Row(
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.arrow_back),
+                    onPressed: () {
+                      Navigator.pop(context); // Navigate back
+                    },
+                  ),
+                ],
+              ),
               // Logo
               Center(
                 child: Padding(
@@ -36,7 +46,7 @@ class PersonalInformationPage extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16.0),
                       child: Text(
-                        'Personal information page',
+                        'User information page',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -62,8 +72,8 @@ class PersonalInformationPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: CustomTextField(
-                      labelText: 'First name',
-                      controller: firstNameController,
+                      labelText: 'User name',
+                      controller: usernameController,
                       bgColor: Colors.grey[300],
                       borderSide: BorderSide.none,
                       radius: 10.0,
@@ -72,8 +82,8 @@ class PersonalInformationPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: CustomTextField(
-                      labelText: 'Last name',
-                      controller: lastNameController,
+                      labelText: 'Email',
+                      controller: emailController,
                       bgColor: Colors.grey[300],
                       borderSide: BorderSide.none,
                       radius: 10.0,
@@ -82,8 +92,9 @@ class PersonalInformationPage extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: CustomTextField(
-                      labelText: 'Location identification',
-                      controller: locationController,
+                      isPasswordField : true,
+                      labelText: 'Password',
+                      controller: passwordController,
                       bgColor: Colors.grey[300],
                       borderSide: BorderSide.none,
                       radius: 10.0,
@@ -113,7 +124,7 @@ class PersonalInformationPage extends StatelessWidget {
                       ),
                     ),
                     child: Text(
-                      'NEXT',
+                      'ADD',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18.0,

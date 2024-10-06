@@ -10,7 +10,7 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor, // Match background color
+      backgroundColor: AppColors.primary, // Match background color
       body: SafeArea(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,

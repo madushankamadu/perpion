@@ -8,7 +8,7 @@ Future<void> main() async {
 
   runApp(
     MaterialApp(
-  initialRoute: '/dashboard_1_page',
+  initialRoute: '/admin_dashboard',
       routes: routes,
     ),
   );
